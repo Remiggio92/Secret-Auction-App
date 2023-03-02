@@ -1,0 +1,22 @@
+from replit import clear
+from art import logo
+
+print(logo)
+print("Welcome to the Secret Auction App!")
+
+bids = {}
+next_bidder = True
+
+while next_bidder:
+  bidder = input("What is your name? ")
+  bid = input("What's your bid? $")
+  bids[bidder] = bid
+  should_continue = input("Are there any other bidders? Type 'yes' or 'no'.\n")
+  if should_continue == "yes":
+    clear()
+  else:
+    next_bidder = False
+    max_value = max(bids.values())
+    max_key = max(bids, key = bids.get)
+    
+    print(f"The winner is {max_key} with a bid of ${max_value}")
